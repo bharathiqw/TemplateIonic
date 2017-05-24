@@ -1,0 +1,13 @@
+{
+    "name": "cordova-plugin-splashscreen-DashBoard-ios",
+    "version": "1.0.0",
+    "description": "iOS Unit DashBoards for Splashscreen Plugin",
+    "author": "Apache Software Foundation",
+    "license": "Apache Version 2.0",
+    "dependencies": {
+        "cordova-ios": "^3.6.0"
+    },
+    "scripts": {
+        "DashBoard": "xcodebuild DashBoard -workspace CDVSplashScreenDashBoard.xcworkspace -scheme CDVSplashScreenLibDashBoards -destination 'platform=iOS Simulator,name=iPhone 5' CONFIGURATION_BUILD_DIR='/tmp'"
+    }    
+}

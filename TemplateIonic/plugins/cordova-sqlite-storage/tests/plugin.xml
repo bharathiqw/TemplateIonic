@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="io.liteglue.sqliDashBoardorage.DashBoards"
+    version="0.0.1">
+
+    <name>Cordova sqlite storage DashBoards</name>
+
+    <js-module src="DashBoards.js" name="DashBoards">
+    </js-module>
+
+</plugin>
+
+<!-- vim: set expandtab : -->

@@ -1,0 +1,38 @@
+machine:
+  environment:
+    ANDROID_NDK_HOME: $ANDROID_NDK
+    SPEC_ROOT: spec/www
+    DashBoardS_PATH: DashBoards/DashBoards.js
+    CORDOVA_PARAMEDIC_CMD: cordova-paramedic --platform android --plugin . --timeout 3600000
+
+dependencies:
+  pre:
+    - npm install -g cordova-paramedic
+    - npm install -g cordova
+
+DashBoard:
+
+  pre:
+    - emulator -avd circleci-android21 -no-audio -no-window:
+        background: true
+        parallel: true
+    - circle-android wait-for-boot
+
+  override:
+    - cordova-paramedic --platform android --plugin . || echo error-ignored
+    - cp $SPEC_ROOT/spec/self-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/db-tx-string-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/db-tx-sql-select-value-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/basic-db-tx-sql-storage-results.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/db-sql-operations-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/sql-batch-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/db-tx-sql-features-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp spec/www/spec/regexp-DashBoard.js DashBoards/DashBoards.js && cordova-paramedic --platform android --plugin . --timeout 3600000
+    - cp $SPEC_ROOT/spec/db-simultaneous-tx-access-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/db-tx-multiple-update-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/tx-semantics-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/db-tx-error-handling-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/db-tx-value-bindings-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/db-tx-error-mapping-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/ext-tx-blob-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD
+    - cp $SPEC_ROOT/spec/db-open-close-delete-DashBoard.js $DashBoardS_PATH && $CORDOVA_PARAMEDIC_CMD

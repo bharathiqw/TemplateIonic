@@ -1,0 +1,71 @@
+
+
+<ion-view view-title="Bookings">
+    <ion-content>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">
+                        Booking Date From
+                    </label>
+                    <div class="col-md-7">
+                        <div class="input-group">
+
+                            <input type="text" id="FromDateSearch" ng-model="FromData" class="form-control calendarsPicker" ng-change="checkfromdate()" />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">
+                        Booking Date To
+                    </label>
+                    <div class="col-md-7">
+                        <div class="input-group">
+
+                            <input type="text" id="FromDateSearch" ng-model="ToDate" class="form-control calendarsPicker" ng-change="checkfromdate()" />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">
+                       
+                    </label>
+                    <div class="col-md-7">
+                        <div class="input-group">
+                            <input type="button" value="Get" class="btn btn-info" ng-click="GetLanguages(FromData,ToDate)" />
+                            <!--<input type="button" value="Clear" class="btn btn-info" ng-click="SearchClear()" />-->
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                   
+                </div>
+            </div>
+
+            <div class="input-group">
+                
+            </div>
+        </div>
+
+        <ion-list>
+            <ion-item ng-repeat="profilelist in profiles" href="#/app/profile/{{profilelist.BookingId}}">
+
+                <h2>{{profilelist.BookingNo}}</h2>
+                <p>{{profilelist.CustomerName}}</p>
+                <p>{{profilelist.ContactNo}}</p>
+                <p>{{profilelist.AppointmentDate}}</p>
+                <p>{{profilelist.Amount}}</p>
+                <p>{{profilelist.Status}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
+

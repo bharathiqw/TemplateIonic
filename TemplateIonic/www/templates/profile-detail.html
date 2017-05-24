@@ -1,0 +1,76 @@
+<!--<ion-view view-title="Profile">
+    <ion-content>
+        <div class="list card">
+            <div class="item item-avatar">
+
+                <h2>{{profile.BookingNo}}</h2>
+                <p>{{profile.CustomerName}}</p>
+            </div>
+            <div class="item item-body">
+                <p>{{profile.CustomerName}}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>-->
+
+<ion-view view-title="View Booking">
+    <ion-content>
+        <div class="list card">
+            <div>
+                <p><b>Booking No :</b> {{BookingNo}}</p>
+                <p><b>Name : </b>{{Name}}</p>
+                <p><b>Contact No : </b>{{ContactNo}}</p>
+                <p><b>Email :</b> {{Email}}</p>
+                <p><b>Address1 :</b> {{Address1}}</p>
+                <p><b>Address2 : </b>{{Address2}}</p>
+                <p><b>Appointment Date&Time : </b>{{AppointmentDateTime}}</p>
+                <p><b>Amount : </b>{{Amount}}</p>
+                <h3><b>Categories</b> </h3>
+
+                <table class="table datatable table-bordered table-striped table-actions">
+                    <thead>
+                        <tr>
+                            <th><b>Category</b></th>
+                            <th><b>Sub Category</b></th>
+                            <th><b>Product</b></th>
+                            <th><b>Quantity</b></th>
+                            <th><b>Price</b></th>
+                            <th><b>Amount</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in BookingDetailsData" ng-show="{{item.ComboPackId==0}}">
+                            <td>{{item.CName}}</td>
+                            <td>{{item.SBName}}</td>
+                            <td>{{item.SName}}</td>
+                            <td>{{item.Quantity}}</td>
+                            <td>{{item.Price}}</td>
+                            <td>{{item.Amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table datatable table-bordered table-striped table-actions">
+                    <thead>
+                        <tr>
+                            <th><b>Combo Pack</b></th>
+                            <th><b>Quantity</b></th>
+                            <th><b>Price</b></th>
+                            <th><b>Amount</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in BookingDetailsData" ng-show="{{item.ComboPackId!=0}}">
+                            <td>{{item.cbName}}</td>
+                            <td>{{item.Quantity}}</td>
+                            <td>{{item.Price}}</td>
+                            <td>{{item.Amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>
+
